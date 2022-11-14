@@ -87,3 +87,22 @@ module rounded_cross_cap(cs_width,res){
     cylinder(cs_width*2, r = cs_r,$fn=res,center = true);       
     }}
 }
+
+module belt_channel(belt_rad){
+    pretty_rad = belt_rad/4;
+    
+    //raw cross section
+    difference(){
+    square([belt_rad*1.5,belt_rad*3]);
+    translate([0,belt_rad*1.5,0]){
+    circle(belt_rad, $fn=50);
+    }}
+    
+    //make it pretty
+    translate([0,pretty_rad,0]){
+    circle(pretty_rad, $fn=20);
+    }
+    translate([0,belt_rad*3-pretty_rad,0]){
+    circle(pretty_rad, $fn=20);
+    }
+}
