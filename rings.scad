@@ -36,8 +36,10 @@ sphere(WR,$fn=res);
 }
 }    
 
-//polygon of n sides, wire radius, ring radius
-module poly_ring(sides,WR,side_length,smooth,res){
+//polygon of n sides, wire radius, internal side length, corner spec, resolution
+module poly_ring(sides,WR,side,smooth,res){
+
+side_length = side + 2 * WR;
 
 RR = ((side_length/2)/sin((360/sides)/2));
 
