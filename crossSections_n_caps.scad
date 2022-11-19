@@ -4,7 +4,7 @@ module cross(cs_width,res){
     cs_r = cs_width/4 + 1; 
     
     difference(){
-    square(cs_width,cs_width,center=true);
+    square(cs_width,cs_width);
     
 	rotate([0,0,0]){
     translate([cs_width/2,cs_width/2,0]){
@@ -70,7 +70,7 @@ module rounded_cross_cap(cs_width,res){
     cs_r = cs_width/4 + 1; 
     
     difference(){           
-    sphere(cs_width/2,$fn=res*2,center = true);
+    sphere(cs_width/2,$fn=res*2);
         
     translate([0,0,-cs_width/2])
     cube([cs_width*2,cs_width*2,cs_width], center = true);
@@ -88,21 +88,21 @@ module rounded_cross_cap(cs_width,res){
     }}
 }
 
-module belt_channel(belt_rad){
+module belt_channel(belt_rad,res){
     pretty_rad = belt_rad/4;
     
     //raw cross section
     difference(){
     square([belt_rad*1.5,belt_rad*3]);
     translate([0,belt_rad*1.5,0]){
-    circle(belt_rad, $fn=50);
+    circle(belt_rad, $fn=res);
     }}
     
     //make it pretty
     translate([0,pretty_rad,0]){
-    circle(pretty_rad, $fn=20);
+    circle(pretty_rad, $fn=res/2);
     }
     translate([0,belt_rad*3-pretty_rad,0]){
-    circle(pretty_rad, $fn=20);
+    circle(pretty_rad, $fn=res/2);
     }
 }
