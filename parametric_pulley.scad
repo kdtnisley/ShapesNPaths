@@ -4,16 +4,16 @@ include <BOSL2/std.scad>
 //belt=8; //belt width
 //w = 3; //race wall thickness
 //pulley = 40; //D of pulley
-//axel = 5;    //d of shaft
+//axle = 5;    //d of shaft
 //spoke = 3;   //d of spokes
 //numSpokes = 6;
 //hub_D = 10;
 
 //TODO: I think the onion ring needs to be taller
 
-//pulley(pulley,belt,axel,hub_D,w,spoke,numSpokes);
+//pulley(pulley,belt,axle,hub_D,w,spoke,numSpokes);
 
-module pulley(pulley_D,belt_width,axel_D,hub_D,w,spoke_D,numSpokes){
+module pulley(pulley_D,belt_width,axle_D,hub_D,w,spoke_D,numSpokes){
 union(){
 //create spokes__________________________________
 sdmaj = pulley_D/2-hub_D/2;
@@ -40,11 +40,11 @@ union(){
 }
 }//end create pulley rim
 
-//create axel pass through______________________
+//create axle pass through______________________
 difference(){
     cylinder(h=belt_width+2*w, d=hub_D,center=true);
-    cylinder(h=belt_width+2*w, d=axel_D,center=true);
-} //end axel pass through
+    cylinder(h=belt_width+2*w, d=axle_D,center=true);
+} //end axle pass through
 } //end union 
 }
 
